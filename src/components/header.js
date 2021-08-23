@@ -29,11 +29,11 @@ function Header({ user }) {
         <header className="header" id="header">
             <nav className="nav-bar">
                 <span className="nav-title">React Blog</span>
-                <div className={`nav-content-container ${menuActive && 'active'}`}>
+                <div className={`nav-content-container ${menuActive && 'active'}`} onMouseEnter={() => setMenuActive(true)} onMouseLeave={() => setMenuActive(false)}>
                     <ul>
                         { navLinks.map((link, index) => (
                             <li key={index}>
-                                <Link to={link.path}>{link.title}</Link>
+                                <Link to={link.path} onClick={() => setMenuActive(false)}>{link.title}</Link>
                             </li>
                         ))}
                     </ul>
